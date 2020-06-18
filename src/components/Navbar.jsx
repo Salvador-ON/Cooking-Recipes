@@ -12,7 +12,7 @@ const NavBar = ({SetReset, SetFavorites}) => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link  onClick={() => SetFavorites(true)}>Favorite Recipes</Nav.Link>
+            <Nav.Link  href="#Fav" onClick={() => SetFavorites(true)}>Favorite Recipes</Nav.Link>
             <Nav.Link onClick={SetReset} href="#Search">Search-Recipes</Nav.Link>
           </Nav>
          
