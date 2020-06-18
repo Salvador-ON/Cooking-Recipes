@@ -9,7 +9,7 @@ const savedRecipes = (state = (favRecipes || []), action) => {
     case 'ERRASE_SAVED_RECIPES':
       return [];
     case 'REMOVE_SAVED_RECIPES':
-      return state.filter(book => book.id !== action.payload);
+      return state.filter(recipe => recipe.recipe.calories !== action.payload);
     default:
       return state;
   }

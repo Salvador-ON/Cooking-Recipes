@@ -6,10 +6,12 @@ import { useSelector } from 'react-redux'
 const Recipes = ({DeleteRecipe }) => {
   const recipes = useSelector(state => state.recipes);
   const favorites = useSelector(state => state.favorites);
+  const savedRecipes = useSelector(state => state.savedRecipes);
+
   return (
     <div className="container repCont">
       <div className="row d-flex justify-content-between">
-        {recipes.map((recipe) => (
+        {(favorites ? savedRecipes : recipes ).map((recipe) => (
           <Recipe
             key={
               String(recipe.recipe.label) +
@@ -33,7 +35,6 @@ const Recipes = ({DeleteRecipe }) => {
 
 
 Recipes.propTypes = {
-  favorites: PropTypes.bool.isRequired,
   DeleteRecipe: PropTypes.func.isRequired,
 };
 

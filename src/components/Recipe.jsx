@@ -7,6 +7,8 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from 'prop-types';
 import {useDispatch} from 'react-redux'
 import {addSavedRecipes} from '../actions'
+import { useSelector } from 'react-redux'
+import {removeRecipes, removeSavedRecipes} from '../actions'
 
 const Recipe = ({
   title,
@@ -23,13 +25,14 @@ const Recipe = ({
 
   const SetFavorite = () => {
     dispatch(addSavedRecipes(recipe));
+    dispatch(removeRecipes(recipe.recipe.calories));
   };
 
   const RemoveFav=()=>{
-    console.log("delete", calories);
-    DeleteRecipe(calories)
+    dispatch(removeSavedRecipes(calories))
   }
 
+  
   return (
     <div className="card border border-secondary text-white col-12 col-md-3 mx-2 my-2 px-0">
       <img src={image} className="card-img" alt={title} />

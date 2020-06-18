@@ -78,7 +78,7 @@ function App() {
   }, [savedRecipes]);
 
   return (
-    <>
+    <div className="App">
       <NavBar SetReset={SetReset}/>
       {welcome && !favorites ? (
         <Landing
@@ -89,22 +89,13 @@ function App() {
           invalidQuery={invalidQuery}
         />
       ) : null}
+      
       {searching && recipes.length === 0 ? (<Waiting dataQuery={dataQuery} />) : null}
-      {recipes.length > 0 && !favorites ? (
-        <Recipes
-          
-          favorites={favorites}
-          DeleteRecipe={DeleteRecipe}
-        />
-      ) : null}
-      {favorites ? (
-        <Recipes
-          
-          favorites={favorites}
-          DeleteRecipe={DeleteRecipe}
-        />
-      ) : null}
-    </>
+
+      {recipes.length > 0 || favorites ? (<Recipes DeleteRecipe={DeleteRecipe}/>) : null}
+      
+    </div>
+    
   );
 }
 

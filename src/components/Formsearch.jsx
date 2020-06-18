@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {useDispatch} from 'react-redux'
 import {addRecipes} from '../actions'
 
-const Formsearch = ({SetData, SetSearching, SetWelcome, SetRecipes, SetInvalid, invalidQuery}) => {
+const Formsearch = ({SetData, SetSearching, SetWelcome, SetInvalid, invalidQuery}) => {
 
   const dispatchRecipes = useDispatch();
 
@@ -93,7 +93,6 @@ Formsearch.propTypes = {
   SetData: PropTypes.func.isRequired,
   SetSearching: PropTypes.func.isRequired,
   SetWelcome: PropTypes.func.isRequired,
-  SetRecipes: PropTypes.func.isRequired,
   SetInvalid: PropTypes.func.isRequired,
   invalidQuery: PropTypes.bool.isRequired,
 

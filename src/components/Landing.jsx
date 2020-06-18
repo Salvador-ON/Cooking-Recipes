@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import PropTypes from 'prop-types';
 
 
-const Landing = ({SetData, SetSearching, SetWelcome, SetRecipes, SetInvalid, invalidQuery}) => {
+const Landing = ({SetData, SetSearching, SetWelcome, SetInvalid, invalidQuery}) => {
   return (
     <div className="App">
       
@@ -15,7 +15,7 @@ const Landing = ({SetData, SetSearching, SetWelcome, SetRecipes, SetInvalid, inv
         
         
         <h1 className="title-welcome mt-2 mt-md-0 mb-5 mb-md-0">Cooking Recipes</h1>
-        <Formsearch SetData={SetData} SetSearching={SetSearching} SetWelcome={SetWelcome} SetRecipes={SetRecipes} SetInvalid={SetInvalid} invalidQuery={invalidQuery}className="searchBar"/>
+        <Formsearch SetData={SetData} SetSearching={SetSearching} SetWelcome={SetWelcome} SetInvalid={SetInvalid} invalidQuery={invalidQuery}className="searchBar"/>
         <div className="welcome-cont mt-5 mt-md-0" style={{background: "url(" + character + ")",}}>
           <img src={logo} className="App-logo mx-auto d-block" alt="logo" />
           
@@ -32,7 +32,6 @@ Landing.propTypes = {
   SetData: PropTypes.func.isRequired,
   SetSearching: PropTypes.func.isRequired,
   SetWelcome: PropTypes.func.isRequired,
-  SetRecipes: PropTypes.func.isRequired,
   SetInvalid: PropTypes.func.isRequired,
   invalidQuery: PropTypes.bool.isRequired,
 
