@@ -17,7 +17,6 @@ function App() {
   const [favorites, useFavorites] = React.useState(false);
   const [invalidQuery, useInvalidQuery] = React.useState(false);
 
-
   const SetFavorites = value => {
     useFavorites(value);
   };
