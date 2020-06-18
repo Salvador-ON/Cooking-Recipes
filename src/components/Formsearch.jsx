@@ -1,8 +1,13 @@
 import React from 'react';
 import {Form, FormControl, Button, Alert } from "react-bootstrap";
 import PropTypes from 'prop-types';
+import {useDispatch} from 'react-redux'
+import {addRecipes} from '../actions'
 
 const Formsearch = ({SetData, SetSearching, SetWelcome, SetRecipes, SetInvalid, invalidQuery}) => {
+
+  const dispatchRecipes = useDispatch();
+
   const [error, useError] = React.useState(invalidQuery);
 
   const [search, useSearch] = React.useState("");
@@ -55,10 +60,7 @@ const Formsearch = ({SetData, SetSearching, SetWelcome, SetRecipes, SetInvalid, 
         SetInvalid(false);
       }
        
-      SetRecipes(data.hits)
-      console.log(data);
-      
-      // setRecipes(data.hits);
+      dispatchRecipes(addRecipes(data.hits))
     };
 
   

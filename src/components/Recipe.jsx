@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from 'prop-types';
+import {useDispatch} from 'react-redux'
+import {addSavedRecipes} from '../actions'
 
 const Recipe = ({
   title,
@@ -13,13 +15,14 @@ const Recipe = ({
   ingredients,
   url,
   recipe,
-  SetFav,
   favorites,
   DeleteRecipe
 }) => {
 
+  const dispatch = useDispatch();
+
   const SetFavorite = () => {
-    SetFav(recipe);
+    dispatch(addSavedRecipes(recipe));
   };
 
   const RemoveFav=()=>{
@@ -56,7 +59,6 @@ const Recipe = ({
   ingredients: PropTypes.array.isRequired,
   url: PropTypes.string.isRequired,
   recipe: PropTypes.object.isRequired,
-  SetFav: PropTypes.func.isRequired,
   favorites: PropTypes.bool.isRequired,
   DeleteRecipe: PropTypes.func.isRequired,
 };

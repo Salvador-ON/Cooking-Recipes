@@ -3,23 +3,28 @@ import Landing from './Landing';
 import Waiting from './Waiting';
 import NavBar from './Navbar';
 import Recipes from '../containers/Recipes';
+import { useSelector } from 'react-redux'
+import {erraseRecipes, addRecipes, changeStateFavs} from '../actions'
+import {useDispatch} from 'react-redux'
 
 function App() {
-  const favRecipes = localStorage.getItem('favs')
-    ? JSON.parse(localStorage.getItem('favs'))
-    : [];
+ 
 
-  const [savedRecipes, useSavedRecipes] = React.useState(favRecipes);
+  //const [savedRecipes, useSavedRecipes] = React.useState(favRecipes);
   const [welcome, useWelcome] = React.useState(true);
   const [dataQuery, useDataQuery] = React.useState('');
   const [searching, useSearching] = React.useState(false);
-  const [recipes, useRecipes] = React.useState([]);
-  const [favorites, useFavorites] = React.useState(false);
+  // const [recipes, useRecipes] = React.useState([]);
+  //const [favorites, useFavorites] = React.useState(false);
   const [invalidQuery, useInvalidQuery] = React.useState(false);
+ 
 
-  const SetFavorites = value => {
-    useFavorites(value);
-  };
+
+  const dispatch = useDispatch();
+
+  const recipes = useSelector(state => state.recipes);
+  const favorites = useSelector(state => state.favorites);
+  const savedRecipes = useSelector(state => state.savedRecipes);
 
   const SetData = data => {
     useDataQuery(data);
@@ -33,26 +38,23 @@ function App() {
     useWelcome(data);
   };
 
-  const SetRecipes = data => {
-    useRecipes(data);
-  };
 
   const SetRecipesLikes = value => {
     const recipesAfterLike = recipes.filter(recipe => recipe.recipe.calories !== value);
-    SetRecipes(recipesAfterLike);
+    dispatch(addRecipes(recipesAfterLike))
   };
 
-  const SetFav = dataRecipe => {
-    useSavedRecipes([...savedRecipes, dataRecipe]);
-    SetRecipesLikes(dataRecipe.recipe.calories);
-  };
+  // const SetFav = dataRecipe => {
+  //   useSavedRecipes([...savedRecipes, dataRecipe]); /// action ready
+  //   SetRecipesLikes(dataRecipe.recipe.calories); // move inside each recipe
+  // };
 
   const SetReset = () => {
     SetSearching(false);
     SetData('');
     SetWelcome(true);
-    SetRecipes([]);
-    SetFavorites(false);
+    dispatch(erraseRecipes())
+    dispatch(changeStateFavs(false))
   };
 
   const SetInvalid = value => {
@@ -64,26 +66,25 @@ function App() {
 
   const DeleteRecipe = value => {
     const newSavedRecipes = savedRecipes.filter(recipe => recipe.recipe.calories !== value);
-    useSavedRecipes(newSavedRecipes);
+    //useSavedRecipes(newSavedRecipes);
   };
 
   React.useEffect(() => {
-    if (favRecipes) {
+    if (savedRecipes) {
       localStorage.setItem('favs', JSON.stringify(savedRecipes));
     } else {
       localStorage.setItem('favs', JSON.stringify([]));
     }
-  }, [savedRecipes, favRecipes]);
+  }, [savedRecipes]);
 
   return (
     <>
-      <NavBar SetReset={SetReset} SetFavorites={SetFavorites} />
+      <NavBar SetReset={SetReset}/>
       {welcome && !favorites ? (
         <Landing
           SetData={SetData}
           SetSearching={SetSearching}
           SetWelcome={SetWelcome}
-          SetRecipes={SetRecipes}
           SetInvalid={SetInvalid}
           invalidQuery={invalidQuery}
         />
@@ -91,16 +92,14 @@ function App() {
       {searching && recipes.length === 0 ? (<Waiting dataQuery={dataQuery} />) : null}
       {recipes.length > 0 && !favorites ? (
         <Recipes
-          recipes={recipes}
-          SetFav={SetFav}
+          
           favorites={favorites}
           DeleteRecipe={DeleteRecipe}
         />
       ) : null}
       {favorites ? (
         <Recipes
-          recipes={savedRecipes}
-          SetFav={SetFav}
+          
           favorites={favorites}
           DeleteRecipe={DeleteRecipe}
         />

@@ -1,8 +1,11 @@
 import React from "react";
 import Recipe from "../components/Recipe";
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux'
 
-const Recipes = ({ recipes, SetFav, favorites, DeleteRecipe }) => {
+const Recipes = ({DeleteRecipe }) => {
+  const recipes = useSelector(state => state.recipes);
+  const favorites = useSelector(state => state.favorites);
   return (
     <div className="container repCont">
       <div className="row d-flex justify-content-between">
@@ -19,7 +22,6 @@ const Recipes = ({ recipes, SetFav, favorites, DeleteRecipe }) => {
             url={recipe.recipe.url}
             ingredients={recipe.recipe.ingredients}
             recipe={recipe}
-            SetFav={SetFav}
             favorites={favorites}
             DeleteRecipe={DeleteRecipe}
           />
@@ -31,8 +33,6 @@ const Recipes = ({ recipes, SetFav, favorites, DeleteRecipe }) => {
 
 
 Recipes.propTypes = {
-  recipes: PropTypes.array.isRequired,
-  SetFav: PropTypes.func.isRequired,
   favorites: PropTypes.bool.isRequired,
   DeleteRecipe: PropTypes.func.isRequired,
 };
