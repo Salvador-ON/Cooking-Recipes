@@ -1,0 +1,102 @@
+.App {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.App-logo {
+  height: 62vmin;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.Character-bg {
+  width: 10vw;
+  position: relative;
+  top: -310px;
+  z-index: 1;
+}
+
+.title-welcome{
+  font-size: 3.5rem;
+}
+
+.title-searching{
+  font-size: 2.5rem;
+}
+
+.welcome-cont {
+  background-size: 35% !important; 
+  background-repeat: no-repeat !important; 
+  background-position: center !important;
+}
+
+.repCont{
+  margin-top: 60px;
+}
+
+.card-grey{
+  background: rgba(51, 48, 48, 0.418);
+  top: 60% !important;
+}
+
+.heartLike {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.text-red{
+  color: rgb(236, 0, 0)
+}
+
+.text-red:hover{
+  transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+
+.text-wh{
+  color: rgb(255, 255, 255)
+}
+
+.text-wh:hover{
+  transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+
+.linksTitle:hover {
+  text-decoration: none !important;
+  color: #ffc74d !important;
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media only screen and (min-width: 768px) { 
+  
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  background-color: #f8b12d;
+}
+
+
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
