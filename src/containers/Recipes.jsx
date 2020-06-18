@@ -10,6 +10,7 @@ const Recipes = ({DeleteRecipe }) => {
 
   return (
     <div className="container repCont">
+      {savedRecipes.length === 0 ? <h1 className="text-white">You don't have any recipe saved! </h1> :null}
       <div className="row d-flex justify-content-between">
         {(favorites ? savedRecipes : recipes ).map((recipe) => (
           <Recipe

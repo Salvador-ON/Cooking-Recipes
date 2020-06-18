@@ -34,11 +34,12 @@ const Recipe = ({
 
   
   return (
-    <div className="card border border-secondary text-white col-12 col-md-3 mx-2 my-2 px-0">
+    <div className="card border border-secondary text-white col-12 col-md-3 mx-2 my-2 px-0"> 
       <img src={image} className="card-img" alt={title} />
       { !favorites ? <FontAwesomeIcon onClick={() => SetFavorite()} icon={faHeart} className="text-red fa-2x heartLike"/> : <FontAwesomeIcon  onClick={() => RemoveFav()} icon={faTrash} className="text-wh fa-2x heartLike"/>}
       
       <div className="card-img-overlay card-grey">
+      
         <span className="h5 card-title mr-2">
           <a
             href={url}
@@ -46,7 +47,7 @@ const Recipe = ({
             target="_blank"
             rel="noopener noreferrer"
           >
-            {title}
+            {title} <br/> <small>Cal:{Math.trunc(calories)}</small>
           </a>
         </span>
       </div>
