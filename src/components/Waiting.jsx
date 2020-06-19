@@ -2,7 +2,6 @@ import React from 'react';
 import logo from '../assets/ring.png';
 import character from '../assets/cut-food.png'
 import '../styles/App.css';
-import 'bootstrap/dist/css/bootstrap.css'
 import PropTypes from 'prop-types';
 
 

@@ -2,34 +2,41 @@ import React from "react";
 import { Nav, Navbar} from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUtensils} from '@fortawesome/free-solid-svg-icons'
-import PropTypes from 'prop-types';
 import {useDispatch} from 'react-redux'
 import {changeStateFavs} from '../actions'
+import {Link} from 'react-router-dom'
 
-const NavBar = ({SetReset}) => {
+const NavBar = () => {
   const dispatch = useDispatch();
   return (
     <React.Fragment>
       <Navbar collapseOnSelect expand="lg" bg="success" variant="dark" className="fixed-top">
-        <Navbar.Brand onClick={SetReset} href="#home">Cooking-Recipes  <FontAwesomeIcon icon={faUtensils} /> </Navbar.Brand>
+      <Link to='/'>
+        <Navbar.Brand onClick={() => dispatch(changeStateFavs(false))}>Cooking-Recipes  <FontAwesomeIcon icon={faUtensils} /> </Navbar.Brand>
+      </Link>
+        
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link  href="#Fav" onClick={() => dispatch(changeStateFavs(true))}>Favorite Recipes</Nav.Link>
-            <Nav.Link onClick={SetReset} href="#Search">Search-Recipes</Nav.Link>
+          <Link to='/favorites'>
+            <Navbar.Text className="mx-md-2" onClick={() => dispatch(changeStateFavs(true))}>
+              Favorite Recipes
+            </Navbar.Text>
+          </Link>
+          <Link to='/'>
+
+          <Navbar.Text className="mx-md-2" onClick={() => dispatch(changeStateFavs(false))}>
+            Search-Recipes
+          </Navbar.Text>
+          </Link>
+            
           </Nav>
          
-          
-          
         </Navbar.Collapse>
       </Navbar>
     </React.Fragment>
   );
 };
 
-
-NavBar.propTypes = {
-  SetReset: PropTypes.func.isRequired,
-};
 
 export default NavBar;

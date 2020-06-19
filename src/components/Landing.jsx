@@ -3,7 +3,6 @@ import logo from '../assets/ring.png';
 import character from '../assets/cut-food.png'
 import Formsearch from './Formsearch'
 import '../styles/App.css';
-import 'bootstrap/dist/css/bootstrap.css'
 import PropTypes from 'prop-types';
 
 

@@ -1,5 +1,4 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.css";
 import "../styles/App.css";
 import { Modal, Button, Image, ListGroup} from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -58,7 +57,7 @@ const Recipe = ({
           <Modal.Title>{title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-        <Image src={image} fluid className="mx-auto d-block"/>
+        <Image src={image} fluid className="mx-auto d-block mb-2"/>
         {ingredients.map((ingredient) => (
           <ListGroup.Item key={ingredient.weight}>{ingredient.text}</ListGroup.Item>
         ))}
