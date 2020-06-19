@@ -42,7 +42,7 @@ const Recipe = ({
       <img src={image} className="card-img" alt={title} />
       { !favorites ? <FontAwesomeIcon onClick={() => SetFavorite()} icon={faHeart} className={styles.textRed + " " + styles.heartLike + " fa-2x"}/> : <FontAwesomeIcon  onClick={() => RemoveFav()} icon={faTrash} className={styles.textDarkOrange + " " + styles.heartLike + " fa-2x"}/>}
       
-      <div onClick={handleShow} className="card-img-overlay card-grey linksTitle" style={{padding: "0.8rem",}}>
+      <div onClick={handleShow} className={styles.linksTitle + " " + styles.cardGrey + " card-img-overlay"} style={{padding: "0.8rem",}}>
       
         <span className="h5 card-title mr-2">
           <span className="font-weight-bold">
