@@ -61,6 +61,8 @@ const Formsearch = ({SetData, SetSearching, SetWelcome, SetInvalid, invalidQuery
         SetInvalid(false);
       }
        
+      SetSearching(false)
+      SetWelcome(true)
       dispatchRecipes(addRecipes(data.hits))
     };
 
@@ -74,12 +76,12 @@ const Formsearch = ({SetData, SetSearching, SetWelcome, SetInvalid, invalidQuery
       </Form>
       <div>
         {error && !invalidQuery ? (
-        <Alert  variant="danger" className="my-1 my-md-2 mx-0 mx-md-1 py-1 align-self-center">
+        <Alert  variant="danger" className="mt-2 mt-md-1 mx-0 mx-md-1 py-0 align-self-center">
         Error Empty Field
         </Alert>
         ) : null}
         {error && invalidQuery ?  (
-        <Alert  variant="danger" className="my-1 my-md-2 mx-0 mx-md-1 py-1 align-self-center">
+        <Alert  variant="danger" className="mt-2 mt-md-1 mx-0 mx-md-1 py-0 align-self-center">
         There are not recipes. Try again
         </Alert>
         ) : null}

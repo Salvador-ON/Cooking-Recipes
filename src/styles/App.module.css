@@ -3,28 +3,21 @@
   margin-top: 50px;
 }
 
-.App-logo {
-  height: 62vmin;
+.AppLogo {
+  height: 56vmin;
   pointer-events: none;
   z-index: 2;
 }
 
-.Character-bg {
-  width: 10vw;
-  position: relative;
-  top: -310px;
-  z-index: 1;
-}
-
-.title-welcome {
+.titleWelcome {
   font-size: 3.5rem;
 }
 
-.title-searching {
+.titleSearching {
   font-size: 2.5rem;
 }
 
-.welcome-cont {
+.welcomeCont {
   background-size: 35% !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
@@ -34,34 +27,29 @@
   margin-top: 60px;
 }
 
-.card-grey {
-  background: rgba(51, 48, 48, 0.418);
-  top: 60% !important;
-}
-
 .heartLike {
   position: absolute;
   top: 10px;
   right: 10px;
 }
 
-.text-red {
+.textRed {
   color: rgb(236, 0, 0);
 }
 
-.text-orange {
+.textOrange {
   color: #f8b12d;
 }
 
-.text-red:hover {
-  transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+.textRed:hover {
+  transform: scale(1.5);
 }
 
-.text-wh {
+.textDarkOrange {
   color: rgb(241, 66, 35);
 }
 
-.text-wh:hover {
+.textDarkOrange:hover {
   transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 
@@ -71,17 +59,13 @@
   cursor: pointer;
 }
 
-.card-img-overlay {
-  padding: 0.8rem !important;
-}
-
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
+  .AppLogo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
 
-.App-welcome {
+.AppWelcome {
   display: flex;
   flex-direction: column;
   align-items: center;

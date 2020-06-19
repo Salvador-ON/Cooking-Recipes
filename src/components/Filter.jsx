@@ -1,6 +1,7 @@
 import React from 'react';
 import {useDispatch} from 'react-redux'
 import {changeFilter} from '../actions'
+import styles from "../styles/App.module.css";
 
 const Filter = () => {
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ const Filter = () => {
 
   return (
     <div className="bg-white mx-5 my-2 w-100  mx-auto border border-light rounded-pill d-flex align-items-center justify-content-center">
-      <span className=" text-orange h2 m-0 p-0 py-md-1 d-inline">Max Calories:</span>
+      <span className={styles.textOrange + " h2 m-0 p-0 py-md-1 d-inline"}>Max Calories:</span>
       <select className=" w-25 mx-3 d-inline" onChange={handleFilterChange} name="category">
         {options}
       </select>

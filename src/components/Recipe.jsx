@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/App.css";
+import styles from "../styles/App.module.css";
 import { Modal, Button, Image, ListGroup} from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
@@ -40,13 +40,13 @@ const Recipe = ({
     <React.Fragment>
       <div className="card border border-secondary text-white col-11 col-md-3 mx-auto mx-md-2 my-2 px-0"> 
       <img src={image} className="card-img" alt={title} />
-      { !favorites ? <FontAwesomeIcon onClick={() => SetFavorite()} icon={faHeart} className="text-red fa-2x heartLike"/> : <FontAwesomeIcon  onClick={() => RemoveFav()} icon={faTrash} className="text-wh fa-2x heartLike"/>}
+      { !favorites ? <FontAwesomeIcon onClick={() => SetFavorite()} icon={faHeart} className={styles.textRed + " " + styles.heartLike + " fa-2x"}/> : <FontAwesomeIcon  onClick={() => RemoveFav()} icon={faTrash} className={styles.textDarkOrange + " " + styles.heartLike + " fa-2x"}/>}
       
-      <div onClick={handleShow} className="card-img-overlay card-grey linksTitle">
+      <div onClick={handleShow} className="card-img-overlay card-grey linksTitle" style={{padding: "0.8rem",}}>
       
         <span className="h5 card-title mr-2">
           <span className="font-weight-bold">
-            {title} <br/> <small>Cal:{Math.trunc(calories)}</small>
+            {title} <br/> <small>Cal: {Math.trunc(calories)}</small>
           </span>
         </span>
       </div>

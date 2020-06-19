@@ -1,8 +1,8 @@
 import React from 'react';
-import '../styles/App.css';
 import Waiting from '../components/Waiting';
 import Landing from '../components/Landing';
 import Recipes from './Recipes';
+import styles from "../styles/App.module.css";
 import { useSelector, useDispatch } from 'react-redux';
 import { erraseRecipes, changeStateFavs } from '../actions';
 
@@ -46,8 +46,8 @@ const Search = () => {
   };
 
   return (
-    <div className="App">
-      {welcome && !favorites ? (
+    <div className={styles.App}>
+      {welcome && !favorites && recipes.length === 0 ? (
         <Landing
           SetData={SetData}
           SetSearching={SetSearching}
@@ -59,7 +59,7 @@ const Search = () => {
 
       {searching && recipes.length === 0 ? (<Waiting dataQuery={dataQuery} />) : null}
 
-      {recipes.length > 0 || favorites ? (<Recipes />) : null}
+      {(recipes.length > 0 && dataQuery) || favorites ? (<Recipes />) : null}
     </div>
     );
 }
