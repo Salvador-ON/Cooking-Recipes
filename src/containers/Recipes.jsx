@@ -1,10 +1,9 @@
 import React from "react";
 import Recipe from "../components/Recipe";
 import Filter from "../components/Filter";
-import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux'
 
-const Recipes = ({DeleteRecipe }) => {
+const Recipes = () => {
   const recipes = useSelector(state => state.recipes);
   const favorites = useSelector(state => state.favorites);
   const savedRecipes = useSelector(state => state.savedRecipes);
@@ -56,18 +55,11 @@ const Recipes = ({DeleteRecipe }) => {
             ingredients={recipe.recipe.ingredients}
             recipe={recipe}
             favorites={favorites}
-            DeleteRecipe={DeleteRecipe}
           />
         ))}
       </div>
     </div>
   );
 };
-
-
-Recipes.propTypes = {
-  DeleteRecipe: PropTypes.func.isRequired,
-};
-
 
 export default Recipes;

@@ -1,6 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "../styles/App.css";
+import { Modal, Button, Image, ListGroup} from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
@@ -19,6 +20,8 @@ const Recipe = ({
   favorites,
 }) => {
 
+  console.log(ingredients);
+  
   const dispatch = useDispatch();
 
   const SetFavorite = () => {
@@ -30,26 +33,53 @@ const Recipe = ({
     dispatch(removeSavedRecipes(calories))
   }
 
+  const [show, setShow] = React.useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   
   return (
-    <div className="card border border-secondary text-white col-11 col-md-3 mx-auto mx-md-2 my-2 px-0"> 
+    <React.Fragment>
+      <div className="card border border-secondary text-white col-11 col-md-3 mx-auto mx-md-2 my-2 px-0"> 
       <img src={image} className="card-img" alt={title} />
       { !favorites ? <FontAwesomeIcon onClick={() => SetFavorite()} icon={faHeart} className="text-red fa-2x heartLike"/> : <FontAwesomeIcon  onClick={() => RemoveFav()} icon={faTrash} className="text-wh fa-2x heartLike"/>}
       
-      <div className="card-img-overlay card-grey">
+      <div onClick={handleShow} className="card-img-overlay card-grey linksTitle">
       
         <span className="h5 card-title mr-2">
-          <a
-            href={url}
-            className="text-white linksTitle font-weight-bold"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <span className="font-weight-bold">
             {title} <br/> <small>Cal:{Math.trunc(calories)}</small>
-          </a>
+          </span>
         </span>
       </div>
     </div>
+
+    <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>{title}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+        <Image src={image} fluid className="mx-auto d-block"/>
+        {ingredients.map((ingredient) => (
+          <ListGroup.Item key={ingredient.weight}>{ingredient.text}</ListGroup.Item>
+        ))}
+        <ListGroup variant="flush">
+
+        
+        </ListGroup>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button href={url} variant="success" target="_blank" rel="noopener noreferrer">
+            Check Intructions
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </React.Fragment>
+    
   );
 };
 
