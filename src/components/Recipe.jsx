@@ -7,7 +7,6 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from 'prop-types';
 import {useDispatch} from 'react-redux'
 import {addSavedRecipes} from '../actions'
-import { useSelector } from 'react-redux'
 import {removeRecipes, removeSavedRecipes} from '../actions'
 
 const Recipe = ({
@@ -18,7 +17,6 @@ const Recipe = ({
   url,
   recipe,
   favorites,
-  DeleteRecipe
 }) => {
 
   const dispatch = useDispatch();
@@ -64,7 +62,6 @@ const Recipe = ({
   url: PropTypes.string.isRequired,
   recipe: PropTypes.object.isRequired,
   favorites: PropTypes.bool.isRequired,
-  DeleteRecipe: PropTypes.func.isRequired,
 };
 
 export default Recipe;

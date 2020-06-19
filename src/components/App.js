@@ -14,12 +14,8 @@ function App() {
   const [welcome, useWelcome] = React.useState(true);
   const [dataQuery, useDataQuery] = React.useState('');
   const [searching, useSearching] = React.useState(false);
-  // const [recipes, useRecipes] = React.useState([]);
-  //const [favorites, useFavorites] = React.useState(false);
   const [invalidQuery, useInvalidQuery] = React.useState(false);
  
-
-
   const dispatch = useDispatch();
 
   const recipes = useSelector(state => state.recipes);
@@ -38,16 +34,10 @@ function App() {
     useWelcome(data);
   };
 
-
   const SetRecipesLikes = value => {
     const recipesAfterLike = recipes.filter(recipe => recipe.recipe.calories !== value);
     dispatch(addRecipes(recipesAfterLike))
   };
-
-  // const SetFav = dataRecipe => {
-  //   useSavedRecipes([...savedRecipes, dataRecipe]); /// action ready
-  //   SetRecipesLikes(dataRecipe.recipe.calories); // move inside each recipe
-  // };
 
   const SetReset = () => {
     SetSearching(false);
@@ -64,10 +54,6 @@ function App() {
     }
   };
 
-  const DeleteRecipe = value => {
-    const newSavedRecipes = savedRecipes.filter(recipe => recipe.recipe.calories !== value);
-    //useSavedRecipes(newSavedRecipes);
-  };
 
   React.useEffect(() => {
     if (savedRecipes) {
@@ -92,7 +78,7 @@ function App() {
       
       {searching && recipes.length === 0 ? (<Waiting dataQuery={dataQuery} />) : null}
 
-      {recipes.length > 0 || favorites ? (<Recipes DeleteRecipe={DeleteRecipe}/>) : null}
+      {recipes.length > 0 || favorites ? (<Recipes/>) : null}
       
     </div>
     
