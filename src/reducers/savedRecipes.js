@@ -1,6 +1,6 @@
 const favRecipes = localStorage.getItem('favs')
-? JSON.parse(localStorage.getItem('favs'))
-: [];
+  ? JSON.parse(localStorage.getItem('favs'))
+  : [];
 
 const savedRecipes = (state = (favRecipes || []), action) => {
   switch (action.type) {

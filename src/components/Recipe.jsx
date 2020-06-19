@@ -19,8 +19,6 @@ const Recipe = ({
   recipe,
   favorites,
 }) => {
-
-  console.log(ingredients);
   
   const dispatch = useDispatch();
 
