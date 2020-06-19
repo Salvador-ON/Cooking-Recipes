@@ -32,7 +32,7 @@ const Recipe = ({
 
   
   return (
-    <div className="card border border-secondary text-white col-12 col-md-3 mx-2 my-2 px-0"> 
+    <div className="card border border-secondary text-white col-11 col-md-3 mx-auto mx-md-2 my-2 px-0"> 
       <img src={image} className="card-img" alt={title} />
       { !favorites ? <FontAwesomeIcon onClick={() => SetFavorite()} icon={faHeart} className="text-red fa-2x heartLike"/> : <FontAwesomeIcon  onClick={() => RemoveFav()} icon={faTrash} className="text-wh fa-2x heartLike"/>}
       

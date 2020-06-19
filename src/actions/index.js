@@ -27,4 +27,9 @@ export const removeSavedRecipes = value => ({
   payload: value,
 });
 
+export const changeFilter = value => ({
+  type: 'CHANGE_FILTER',
+  payload: value,
+});
+
 

@@ -4,7 +4,7 @@ import Waiting from './Waiting';
 import NavBar from './Navbar';
 import Recipes from '../containers/Recipes';
 import { useSelector } from 'react-redux'
-import {erraseRecipes, addRecipes, changeStateFavs} from '../actions'
+import {erraseRecipes, changeStateFavs} from '../actions'
 import {useDispatch} from 'react-redux'
 
 function App() {
@@ -32,11 +32,6 @@ function App() {
 
   const SetWelcome = data => {
     useWelcome(data);
-  };
-
-  const SetRecipesLikes = value => {
-    const recipesAfterLike = recipes.filter(recipe => recipe.recipe.calories !== value);
-    dispatch(addRecipes(recipesAfterLike))
   };
 
   const SetReset = () => {
