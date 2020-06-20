@@ -1,4 +1,4 @@
-const favorites = (state = false, action) => {
+const favorites = (state = true, action) => {
   switch (action.type) {
     case 'CHANGE_STATE':
       return action.payload;

@@ -15,6 +15,11 @@ const Search = () => {
   const [invalidQuery, useInvalidQuery] = React.useState(false);
   const dispatch = useDispatch();
   
+
+  
+  dispatch(changeStateFavs(false));
+    
+  
   const recipes = useSelector(state => state.recipes);
   const favorites = useSelector(state => state.favorites);
 

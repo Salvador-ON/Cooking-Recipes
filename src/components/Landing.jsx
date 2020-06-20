@@ -13,7 +13,7 @@ const Landing = ({SetData, SetSearching, SetWelcome, SetInvalid, invalidQuery}) 
       <div className={styles.AppWelcome}>
         
         
-        <h1 className={styles.titleWelcome + " mt-2 mt-md-0 mb-3 mb-md-0"}>Cooking Recipes</h1>
+        <h1 id="TitleWelcome" className={styles.titleWelcome + " mt-2 mt-md-0 mb-3 mb-md-0"}>Cooking Recipes</h1>
         <Formsearch SetData={SetData} SetSearching={SetSearching} SetWelcome={SetWelcome} SetInvalid={SetInvalid} invalidQuery={invalidQuery} className={styles.titleWelcome}/>
         <div className={styles.welcomeCont + " mt-5 mt-md-0"} style={{background: "url(" + character + ")",}}>
           <img src={logo} className={styles.AppLogo+" mx-auto d-block"} alt="logo" />
