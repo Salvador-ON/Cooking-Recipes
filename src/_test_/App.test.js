@@ -1,12 +1,11 @@
-
-
-// counter.test.js
 import React from 'react'
 import { createStore } from 'redux'
-import { render, fireEvent, screen, cleanup } from './test-utils'
+import { render, fireEvent, screen, cleanup} from './test-utils'
 import { Router } from 'react-router-dom'
 import { createMemoryHistory } from 'history'
 import '@testing-library/jest-dom/extend-expect'
+import { Provider } from 'react-redux';
+import store from '../store'
 import App from '../components/App'
 
 afterEach(cleanup);
@@ -21,16 +20,6 @@ const renderWithRouter = (component) => {
   )
 }
 }
-
-const setup = () => {
-  const utils = render(<App />)
-  const input = utils.getByTestId('FieldText')
-  return {
-    input,
-    ...utils,
-  }
-}
-
 
 test('rendering main app', () => {
   expect(render(<App />)).toMatchSnapshot()
@@ -72,19 +61,18 @@ test('should render error empty field formsearch recipes', () => {
   expect(container.innerHTML).toMatch("Error Empty Field")
   })
 
-test('should render pizza searched recipes component', () => {
-  const { container, getByTestId, utils } = renderWithRouter(<App />) 
+test('should render waiting component while searching for pizza recipes', () => {
+  const { container, getByTestId} = renderWithRouter(<App />) 
   const input = getByTestId('FieldText')
-  fireEvent.click(getByTestId('FavRecipes'))
-  fireEvent.click(getByTestId('SearchRecipes'))
-  expect(container.innerHTML).toMatch("Cooking Recipes")
+  fireEvent.change(input, { target: { value: 'pizza' } })
+  fireEvent.click(getByTestId('SearchButton'))
+  expect(container.innerHTML).toMatch("Searching pizza recipes")
   })
 
-test('formsearch componeed should be empty', () => {
-  const { input } = setup()
-  expect(input.value).toBe('')
+test('should render pizza recipes', async () => {
+  const { container, getByTestId} = render(<App/>) 
+  const input = getByTestId('FieldText')
+  fireEvent.change(input, { target: { value: 'pizza' } })
+  fireEvent.click(getByTestId('SearchButton'))
+  await expect(container.innerHTML).toMatch("Max Calories:")
 })
-
-
-
-
