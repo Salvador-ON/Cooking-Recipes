@@ -71,8 +71,8 @@ const Formsearch = ({SetData, SetSearching, SetWelcome, SetInvalid, invalidQuery
 
     <React.Fragment>
       <Form onSubmit={submitData} className="d-flex">
-        <FormControl type="text" onChange={HandleChange} name="food" placeholder="Search Recipes" className="w-100 mr-2" value={search}/>
-        <Button type="submit" variant="outline-light" className="w-50">Search</Button>
+        <FormControl data-testid="FieldText" type="text" onChange={HandleChange} name="food" placeholder="Search Recipes" className="w-100 mr-2" value={search}/>
+        <Button data-testid="SearchButton" type="submit" variant="outline-light" className="w-50">Search</Button>
       </Form>
       <div>
         {error && !invalidQuery ? (

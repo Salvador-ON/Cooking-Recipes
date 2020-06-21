@@ -36,7 +36,7 @@ const Recipes = () => {
 
   return (
     <div className="container repCont pt-2">
-      {savedRecipes.length === 0 && favorites ? <h1 className="text-white">You don't have any recipes saved! </h1> :null}
+      {savedRecipes.length === 0 && favorites ? <h1 data-testid="NoRecipes" className="text-white">You don't have any recipes saved! </h1> :null}
 
       <Filter />
 

@@ -26,13 +26,13 @@ const NavBar = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
           <Link to='/favorites'>
-            <Navbar.Text className="mx-md-2" onClick={() => dispatch(changeStateFavs(true))}>
+            <Navbar.Text data-testid="FavRecipes" className="mx-md-2" onClick={() => dispatch(changeStateFavs(true))}>
               Favorite Recipes
             </Navbar.Text>
           </Link>
           <Link to='/'>
 
-          <Navbar.Text className="mx-md-2" onClick={() => ResetSearch()}>
+          <Navbar.Text data-testid="SearchRecipes" className="mx-md-2" onClick={() => ResetSearch()}>
             Search-Recipes
           </Navbar.Text>
           </Link>
