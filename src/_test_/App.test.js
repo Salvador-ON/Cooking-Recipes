@@ -1,12 +1,15 @@
 import React from 'react'
 import { createStore } from 'redux'
 import { render, fireEvent, screen, cleanup} from './test-utils'
+import { waitFor } from '@testing-library/react'
 import { Router } from 'react-router-dom'
 import { createMemoryHistory } from 'history'
 import '@testing-library/jest-dom/extend-expect'
 import { Provider } from 'react-redux';
 import store from '../store'
 import App from '../components/App'
+import Recipes from '../containers/Recipes'
+
 
 afterEach(cleanup);
 
@@ -68,11 +71,3 @@ test('should render waiting component while searching for pizza recipes', () => 
   fireEvent.click(getByTestId('SearchButton'))
   expect(container.innerHTML).toMatch("Searching pizza recipes")
   })
-
-test('should render pizza recipes', async () => {
-  const { container, getByTestId} = render(<App/>) 
-  const input = getByTestId('FieldText')
-  fireEvent.change(input, { target: { value: 'pizza' } })
-  fireEvent.click(getByTestId('SearchButton'))
-  await expect(container.innerHTML).toMatch("Max Calories:")
-})
