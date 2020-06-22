@@ -17,6 +17,7 @@ const Recipe = ({
   url,
   recipe,
   favorites,
+  visibility
 }) => {
   
   const dispatch = useDispatch();
@@ -38,7 +39,7 @@ const Recipe = ({
   
   return (
     <React.Fragment>
-      <div className="card border border-secondary text-white col-11 col-md-3 mx-auto mx-md-2 my-2 px-0"> 
+      <div className={(visibility === 'invisible' ? "invisible d-none d-md-inline" : 'visible')  + " card border border-secondary text-white col-11 col-md-3 mx-auto mx-md-2 my-2 px-0"}> 
       <img src={image} className="card-img" alt={title} />
       { !favorites ? <FontAwesomeIcon onClick={() => SetFavorite()} icon={faHeart} className={styles.textRed + " " + styles.heartLike + " fa-2x"}/> : <FontAwesomeIcon  onClick={() => RemoveFav()} icon={faTrash} className={styles.textDarkOrange + " " + styles.heartLike + " fa-2x"}/>}
       
@@ -84,6 +85,7 @@ const Recipe = ({
 
   Recipe.propTypes = {
   title: PropTypes.string.isRequired,
+  visibility: PropTypes.string.isRequired,
   calories: PropTypes.number.isRequired,
   ingredients: PropTypes.array.isRequired,
   url: PropTypes.string.isRequired,

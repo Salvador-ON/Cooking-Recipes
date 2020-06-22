@@ -25,13 +25,20 @@ const Recipes = () => {
       case '5000':
         return recipesToFilter.filter(recipe => recipe.recipe.calories <= filterCategory);
       case '6000':
-        return recipesToFilter.filter(recipe => recipe.recipe.calories <= 5000);
+        return recipesToFilter.filter(recipe => recipe.recipe.calories <= filterCategory);
       case '7000':
-        return recipesToFilter.filter(recipe => recipe.recipe.calories <= 5000);
+        return recipesToFilter.filter(recipe => recipe.recipe.calories <= filterCategory);
       default:
         return recipesToFilter;
     }
   };
+
+  const emptySpaces = () => {
+    if (filterByCategory().length === 0){
+    return Array.from(Array(3).keys()) }
+    return Array.from(Array((3 % filterByCategory().length)).keys()) 
+  }
+  
   
 
   return (
@@ -55,8 +62,28 @@ const Recipes = () => {
             ingredients={recipe.recipe.ingredients}
             recipe={recipe}
             favorites={favorites}
+            visibility={'visible'}
           />
         ))}
+
+        {emptySpaces().map((recipe) => (
+          <Recipe
+            key={
+              String(recipe) +
+              "" +
+              'copy'
+            }
+            title={recipe}
+            calories={recipe}
+            image={recipe}
+            url={recipe}
+            ingredients={[1,2,3]}
+            recipe={recipe}
+            favorites={recipe}
+            visibility={'invisible'}
+          />
+        ))}
+        
       </div>
     </div>
   );
