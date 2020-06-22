@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Search from '../containers/Search';
-import styles from "../styles/App.module.css";
+import styles from '../styles/App.module.css';
 import NavBar from './Navbar';
 import Recipes from '../containers/Recipes';
 
