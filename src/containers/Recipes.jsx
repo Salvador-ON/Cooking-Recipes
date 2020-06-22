@@ -68,18 +68,15 @@ const Recipes = () => {
 
         {emptySpaces().map((recipe) => (
           <Recipe
-            key={
-              String(recipe) +
-              "" +
-              'copy'
-            }
-            title={recipe}
-            calories={recipe}
-            image={recipe}
-            url={recipe}
-            ingredients={[1,2,3]}
-            recipe={recipe}
-            favorites={recipe}
+            key={recipe}
+            title={"title"}
+            calories={254}
+            image={"image"}
+            url={"url"}
+            ingredients={[{weight: recipe,
+            text: recipe}]}
+            recipe={{recipe:11}}
+            favorites={false}
             visibility={'invisible'}
           />
         ))}
