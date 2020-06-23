@@ -15,6 +15,34 @@
 
 Live version [here](https://cooking-recipes-app.netlify.app).
 
+## How to use it
+
+You can use this app [online](https://cooking-recipes-app.netlify.app).
+
+Or you can get a local copy up and running follow these simple example steps.
+
+Download the project with
+```
+$ git clone https://github.com/Salvador-ON/Cooking-Recipes.git
+```
+Also you can download the project from this link
+
+```
+https://github.com/Salvador-ON/Cooking-Recipes/archive/master.zip
+```
+
+To start the app. You need to have installed node.js and npm [Check here](https://www.npmjs.com/get-npm)
+
+Then go to the folder at the terminal an run 
+
+```
+npm start
+```
+
+## App Demo Use
+
+![](./assets/App-use.gif)
+
 ## Author
 
 **Salvador Olvera**
