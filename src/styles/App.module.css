@@ -1,0 +1,91 @@
+.App {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.AppLogo {
+  height: 56vmin;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.titleWelcome {
+  font-size: 3.5rem;
+}
+
+.titleSearching {
+  font-size: 2.5rem;
+}
+
+.welcomeCont {
+  background-size: 35% !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+}
+
+.repCont {
+  margin-top: 60px;
+}
+
+.heartLike {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.textRed {
+  color: rgb(236, 0, 0);
+}
+
+.textOrange {
+  color: #f8b12d;
+}
+
+.textRed:hover {
+  transform: scale(1.5);
+}
+
+.textDarkOrange {
+  color: rgb(241, 66, 35);
+}
+
+.textDarkOrange:hover {
+  transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.cardGrey {
+  background: rgba(51, 48, 48, 0.418);
+  top: 60% !important;
+}
+
+.linksTitle:hover {
+  text-decoration: none !important;
+  color: #ffc74d !important;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .AppLogo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.AppWelcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  background-color: #f8b12d;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
