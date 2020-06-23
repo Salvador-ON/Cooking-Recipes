@@ -19,7 +19,7 @@ Live version [here](https://cooking-recipes-app.netlify.app).
 
 You can use this app [online](https://cooking-recipes-app.netlify.app).
 
-Or you can get a local copy up and running follow these simple example steps.
+Or you can get a local copy up and running follow these simple steps.
 
 Download the project with
 ```
@@ -31,7 +31,7 @@ Also you can download the project from this link
 https://github.com/Salvador-ON/Cooking-Recipes/archive/master.zip
 ```
 
-To start the app. You need to have installed node.js and npm [Check here](https://www.npmjs.com/get-npm)
+To start the app. You need to have installed node.js and npm. [Check here](https://www.npmjs.com/get-npm)
 
 Then go to the folder at the terminal an run 
 
@@ -65,7 +65,7 @@ npm start
 
 In the project directory, you can run:
 
-### `yarn start`
+### `yarn/npm start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -73,12 +73,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `yarn test`
+### `yarn/npm test`
 
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+### `yarn/npm build`
 
 Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -88,7 +88,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+### `yarn/npm eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
